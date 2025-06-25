@@ -11,23 +11,27 @@ import Categories from './Pages/Categories'
 import Cart from './Pages/Cart'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
+import { Register } from './Pages/Register'
+import {Login} from './Pages/Login'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-      <div className="bg-white h-[100vh]">
-        <Navbar />
-        {/* <SearchBar /> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Products" element={<Products />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Deals" element={<Deals />} />
-          <Route path="/Categories" element={<Categories />} />
-          <Route path='/cart' element={<Cart />} />
-        </Routes>
-        <Footer />
-      </div>
+    <div className="bg-white h-[100vh]">
+      <Navbar />
+      {/* <SearchBar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Products" element={<Products />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Deals" element={<Deals />} />
+        <Route path="/Categories" element={<Categories />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 
