@@ -9,91 +9,125 @@ import { motion } from "framer-motion";
 import SearchBar from "./SearchBar.jsx";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
+
 const Navbar = () => {
   const [cross, setCross] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
-  const [search , setSearch] = useState(false)
+  const [search, setSearch] = useState(false);
 
   return (
-    <div className="flex flex-col text-black">
-      {/* Top banner */}
-      <div className="lg:px-[4vw] md:px-[3vw] sm:px-[1vw] px-2 text-sm py-2 justify-between md:inline-flex hidden border-b border-gray-300">
-        <p className="text-gray-500">
-          Get up to 50% off new season styles, limited time only
+    <div className="flex flex-col text-black bg-white shadow-sm">
+      {/* Top banner with gradient background */}
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 lg:px-[4vw] md:px-[3vw] sm:px-[1vw] px-2 text-sm py-3 justify-between md:inline-flex hidden border-b border-blue-200">
+        <p className="text-gray-600 font-medium">
+          🎉 Get up to 50% off new season styles, limited time only
         </p>
-        <div className="flex gap-4">
-          <button className="hover:text-blue-400 cursor-pointer">
+        <div className="flex gap-6">
+          <button className="hover:text-blue-600 cursor-pointer transition-colors duration-200 font-medium">
             Help Center
           </button>
-          <button className="hover:text-blue-400 cursor-pointer">
+          <button className="hover:text-blue-600 cursor-pointer transition-colors duration-200 font-medium">
             Order Tracking
           </button>
         </div>
       </div>
 
-      {/* Main navbar */}
-      <div className="sm:py-5 py-3 flex items-center lg:px-[4vw] md:px-[3vw] sm:px-[1vw] px-3 justify-between text-black border-b border-gray-300 relative w-full">
-        {/* Logo */}
-        <p className="font-bold text-2xl sm:text-3xl text-blue-400">DOORCART</p>
+      {/* Main navbar with enhanced styling */}
+      <div className="sm:py-6 py-4 flex items-center lg:px-[4vw] md:px-[3vw] sm:px-[1vw] px-3 justify-between text-black border-b border-gray-200 relative w-full bg-white">
+        {/* Enhanced Logo */}
+        <div className="flex items-center">
+          <p className="font-black text-2xl sm:text-3xl bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent tracking-tight">
+            DOORCART
+          </p>
+          <div className="w-2 h-2 bg-blue-500 rounded-full ml-1 animate-pulse"></div>
+        </div>
 
-        {/* Mobile menu button */}
-        <div className={`sm:hidden flex items-center gap-2`}>
-          <div
-            onClick={() => {
-              setSearch(!search);
-            }}
+        {/* Mobile menu button with improved styling */}
+        <div className="sm:hidden flex items-center gap-3">
+          <motion.div
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setSearch(!search)}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
           >
-            <IoMdSearch className="text-2xl cursor-pointer" />
+            <IoMdSearch className="text-2xl cursor-pointer text-gray-600" />
+          </motion.div>
 
-          </div>
-          {/* Hambergor */}
-          <button onClick={() => setCross(!cross)} className="z-50 relative">
+          {/* Enhanced Hamburger */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setCross(!cross)}
+            className="z-50 relative p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+          >
             <IoReorderThreeOutline
-              className={`${cross ? "hidden" : ""} text-3xl cursor-pointer`}
+              className={`${
+                cross ? "hidden" : ""
+              } text-3xl cursor-pointer text-gray-600`}
             />
-          </button>
+          </motion.button>
 
-          {/* Mobile sliding menu */}
-
+          {/* Enhanced Mobile sliding menu */}
           <div>
             <motion.div
               initial={{ x: 600 }}
               animate={cross ? { x: 0 } : { x: 600 }}
               transition={{ type: "tween", duration: 0.3 }}
-              className={`fixed top-0 right-0 h-full w-[100%] max-w-sm  z-50 shadow-lg bg-gray-300`}
+              className="fixed top-0 right-0 h-full w-[100%] max-w-sm z-50 shadow-2xl bg-white backdrop-blur-sm"
             >
               <ul className="flex flex-col h-full">
-                {/* Close Button */}
+                {/* Enhanced Close Button */}
                 <li
-                  className="flex items-center gap-2 bg-gray-300 py-3 px-4 border-b border-gray-600 cursor-pointer hover:bg-gray-400"
+                  className="flex items-center gap-3 bg-gradient-to-r from-gray-50 to-gray-100 py-4 px-6 border-b border-gray-200 cursor-pointer hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-150 transition-all duration-200"
                   onClick={() => setCross(false)}
                 >
-                  <LuArrowLeft className="text-xl text-black" />
-                  <span className="text-xl">Back</span>
+                  <LuArrowLeft className="text-xl text-gray-700" />
+                  <span className="text-lg font-medium text-gray-700">
+                    Back
+                  </span>
                 </li>
 
-                {/* Navigation Links */}
+                {/* Enhanced Navigation Links */}
                 <NavLink to="/" onClick={() => setCross(false)}>
-                  <li className="flex items-center gap-2 bg-gray-300 py-3 px-4 border-b border-gray-600 cursor-pointer hover:bg-gray-400">
-                    <IoHomeOutline className="text-xl text-black" /> Home
-                  </li>
+                  <motion.li
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
+                  >
+                    <IoHomeOutline className="text-xl text-gray-600 group-hover:text-blue-600 transition-colors duration-200" />
+                    <span className="text-lg font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-200">
+                      Home
+                    </span>
+                  </motion.li>
                 </NavLink>
 
-                <li className="flex items-center gap-2 bg-gray-300 py-3 px-4 border-b border-gray-600 cursor-pointer hover:bg-gray-400">
-                  <FaRegHeart className="text-xl text-black" />
-                  <span className="text-xl">Wishlist</span>
-                </li>
+                <motion.li
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <FaRegHeart className="text-xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
+                  <span className="text-lg font-medium text-gray-700 group-hover:text-red-500 transition-colors duration-200">
+                    Wishlist
+                  </span>
+                </motion.li>
 
-                <li className="flex items-center gap-2 bg-gray-300 py-3 px-4 border-b border-gray-600 cursor-pointer hover:bg-gray-400">
-                  <BsCart2 className="text-xl text-black" />
-                  <span className="text-xl">Cart</span>
-                </li>
+                <motion.li
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <BsCart2 className="text-xl text-gray-600 group-hover:text-green-600 transition-colors duration-200" />
+                  <span className="text-lg font-medium text-gray-700 group-hover:text-green-600 transition-colors duration-200">
+                    Cart
+                  </span>
+                </motion.li>
 
                 <NavLink to="/login" onClick={() => setCross(false)}>
-                  <li className="flex items-center gap-2 bg-gray-300 py-3 px-4 border-b border-gray-600 cursor-pointer hover:bg-gray-400">
-                    <CgProfile className="text-xl text-black" />
-                    <span className="text-xl">My Profile</span>
-                  </li>
+                  <motion.li
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
+                  >
+                    <CgProfile className="text-xl text-gray-600 group-hover:text-purple-600 transition-colors duration-200" />
+                    <span className="text-lg font-medium text-gray-700 group-hover:text-purple-600 transition-colors duration-200">
+                      My Profile
+                    </span>
+                  </motion.li>
                 </NavLink>
               </ul>
             </motion.div>
@@ -101,44 +135,70 @@ const Navbar = () => {
         </div>
 
         {/* Search bar */}
-        <div className="hidden sm:block ">
+        <div className="hidden sm:block">
           <SearchBar />
         </div>
 
-        {/* Desktop menu items */}
+        {/* Enhanced Desktop menu items */}
         <div className="sm:block hidden text-gray-700 items-center gap-6">
-          <div className="gap-2 flex">
+          <div className="gap-3 flex">
             <NavLink to="/">
-              <div className="sm:flex hover:bg-gray-300 rounded-full p-2 cursor-pointer hidden">
-                <IoHomeOutline className="text-2xl text-gray-600" />
-              </div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="sm:flex hover:bg-blue-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
+              >
+                <IoHomeOutline className="text-2xl text-gray-600 group-hover:text-blue-600 transition-colors duration-200" />
+              </motion.div>
             </NavLink>
+
             <NavLink to="/login">
-              <div className="sm:flex hover:bg-gray-300 rounded-full p-2 cursor-pointer hidden">
-                <CgProfile className="text-2xl text-gray-600" />
-              </div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="sm:flex hover:bg-purple-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
+              >
+                <CgProfile className="text-2xl text-gray-600 group-hover:text-purple-600 transition-colors duration-200" />
+              </motion.div>
             </NavLink>
-            <div className="sm:flex hover:bg-gray-300 rounded-full p-2 cursor-pointer hidden">
-              <FaRegHeart className="text-2xl text-gray-600" />
-            </div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="sm:flex hover:bg-red-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
+            >
+              <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
+            </motion.div>
+
             <NavLink to="/cart">
-              <div className="sm:flex hover:bg-gray-300 rounded-full p-2 cursor-pointer hidden">
-                <BsCart2 className="text-2xl text-gray-600" />
-              </div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="sm:flex hover:bg-green-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group relative"
+              >
+                <BsCart2 className="text-2xl text-gray-600 group-hover:text-green-600 transition-colors duration-200" />
+                {/* Optional cart badge */}
+                {/* <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span> */}
+              </motion.div>
             </NavLink>
           </div>
         </div>
-
-        {/* Mobile search bar */}
-        {/* <div className="sm:hidden inline-flex px-3 py-2 border-b border-gray-300"> */}
-        {/* <SearchBar /> */}
-        {/* </div> */}
       </div>
 
-      <div className={`border-b ${search ? "block" : "hidden"} flex justify-around px-10`}>
-        {console.log('Opened SearchBar')}
+      {/* Enhanced Mobile search bar */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={
+          search ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }
+        }
+        exit ={{ opacity: 0, height: 0 }} 
+        transition={{ duration: 0.3 }}
+        className={`border-b border-gray-200 ${
+          search ? "block" : "hidden"
+        } bg-gray-50 px-4 py-3 sm:hidden`}
+      >
         <SearchBar />
-      </div>
+      </motion.div>
     </div>
   );
 };

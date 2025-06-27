@@ -22,7 +22,7 @@ const Category = () => {
         {/* Categories Container */}
         <div className="relative">
           {/* Desktop Grid - Hidden on mobile */}
-          <div className="hidden lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
+          <div className="hidden lg:flex gap-6 justify-center">
             {CategoryData.map((item, index) => (
               <div key={item.id} className="group cursor-pointer">
                 <div className="flex flex-col items-center p-4 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300">

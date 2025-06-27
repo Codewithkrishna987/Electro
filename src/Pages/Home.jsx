@@ -175,7 +175,7 @@
   const Home = () => {
     return (
       <>
-        <div className="sm:p-5 px-3 py-2">
+        <div className="sm:p-5 px-3 py-2 bg-gradient-to-br from-blue-50 to-white">
           {/* Category */}
           <Category />
 
