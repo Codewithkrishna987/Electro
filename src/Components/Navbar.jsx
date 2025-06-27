@@ -101,7 +101,7 @@ const Navbar = () => {
         </div>
 
         {/* Search bar */}
-        <div className="hidden sm:block">
+        <div className="hidden sm:block ">
           <SearchBar />
         </div>
 

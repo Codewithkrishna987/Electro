@@ -3,7 +3,7 @@ import {IoIosSearch} from 'react-icons/io'
 
 const SearchBar = () => {
   return (
-    <div className="p-2 rounded-sm sm:w-130 w-[100%] bg-gray-300 flex">
+    <div className="p-2 rounded-sm sm:w-90 md:w-100 w-[100%] bg-gray-300 flex">
       <input
         type="text"
         className="flex-1 outline-none"

@@ -17,7 +17,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="bg-white h-[100vh]">
+    <div className="bg-white h-full relative">
       <Navbar />
       {/* <SearchBar /> */}
       <Routes>
