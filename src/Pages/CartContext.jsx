@@ -19,7 +19,33 @@ export const CartProvider = ({children}) =>{
         });
     };
 
-    return  <CartContext.Provider value={{cart,addToCart}}>
+    const deletefromCart = (product) =>{
+        setCart((pre) =>{
+            return pre
+            .map((item) =>{
+                if (item.id === product.id) {
+                    return {...item, quantity:item.quantity - item.quantity}
+                }
+                return item;
+            })
+           .filter((item) => item.quantity > 0)
+        })
+    }
+
+    const decreasefromCart = (product) =>{
+        setCart((pre) =>{
+            return pre
+            .map((item) =>{
+                if (item.id === product.id) {
+                    return {...item, quantity:item.quantity - 1}
+                }
+                return item;
+            })
+           .filter((item) => item.quantity > 0)
+        })
+    }
+
+    return  <CartContext.Provider value={{cart, addToCart, deletefromCart, decreasefromCart}}>
             {children}
         </CartContext.Provider>
     
