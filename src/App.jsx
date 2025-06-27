@@ -13,6 +13,7 @@ import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import { Register } from './Pages/Register'
 import {Login} from './Pages/Login'
+
 function App() {
   const [count, setCount] = useState(0)
 
