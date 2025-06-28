@@ -13,6 +13,7 @@ import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import { Register } from './Pages/Register'
 import {Login} from './Pages/Login'
+import ProductPreview from './Pages/ProductPreview'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Deals" element={<Deals />} />
         <Route path="/Categories" element={<Categories />} />
+        <Route path="/product/:id" element={<ProductPreview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
