@@ -1,60 +1,54 @@
-import React from "react";
-import Category from "../Components/Category";
-import { CategoryData } from "../assets/assets.js";
-import { Link } from "react-router";
-// newArrival data
-export const newArrivalData = [
-  {
-    id: 1,
-    title: "productName",
-    description: "productfull",
-    pricecut: "5500.00",
-    price: "4899.00",
-    img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
-    hoverimg:
-      "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
-  },
-  {
-    id: 2,
-    title: "productName",
-    description: "productfull",
-    pricecut: "5500.00",
-    price: "4899.00",
-    img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
-    hoverimg:
-      "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
-  },
-  {
-    id: 3,
-    title: "productName",
-    description: "productfull",
-    pricecut: "5500.00",
-    price: "4899.00",
-    img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
-    hoverimg:
-      "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
-  },
-  {
-    id: 4,
-    title: "productName",
-    description: "productfull",
-    pricecut: "5500.00",
-    price: "4899.00",
-    img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
-    hoverimg:
-      "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
-  },
-  {
-    id: 5,
-    title: "productName",
-    description: "productfull",
-    pricecut: "5500.00",
-    price: "4899.00",
-    img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
-    hoverimg:
-      "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
-  },
-];
+  import React from "react";
+  import Category from "../Components/Category";
+  import { CategoryData } from "../assets/assets.js";
+    // newArrival data 
+  const newArrivalData = [
+    {
+      id: 1,
+      title: "productName",
+      description: "productfull",
+      pricecut: "5500.00",
+      price: "4899.00",
+      img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
+      hoverimg:"https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
+    },
+    {
+      id: 2,
+      title: "productName",
+      description: "productfull",
+      pricecut: "5500.00",
+      price: "4899.00",
+      img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
+      hoverimg:"https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
+    },
+    {
+      id: 3,
+      title: "productName",
+      description: "productfull",
+      pricecut: "5500.00",
+      price: "4899.00",
+      img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
+      hoverimg:"https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
+    },
+    {
+      id: 4,
+      title: "productName",
+      description: "productfull",
+      pricecut: "5500.00",
+      price: "4899.00",
+      img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
+      hoverimg:"https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
+    },
+    {
+      id: 5,
+      title: "productName",
+      description: "productfull",
+      pricecut: "5500.00",
+      price: "4899.00",
+      img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
+      hoverimg:"https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
+    },
+  ];
 
 // popular data
 
@@ -168,18 +162,16 @@ const Card = ({ title, description, pricecut, price, img, hoverimg }) => {
 
         {/* rating stars */}
 
-        <div className="flex justify-between">
-          <p className="line-through text-gray-500">₹{pricecut}</p>
-          <p className="text-blue-700 font-semibold">₹{price}</p>
+          <div className="flex justify-between">
+            <p className="line-through text-gray-500">₹{pricecut}</p>
+            <p className="text-blue-700 font-semibold">₹{price}</p>
+          </div>
+          <button className="border-2 w-full border-blue-700 hover:border-none text-blue-700 hover:text-white hover:bg-black cursor-pointer p-1.5 flex justify-center items-center gap-3 mt-3.5 rounded-sm"><i class="fa-solid fa-cart-shopping "></i><span>Add to cart</span></button>
         </div>
-        <button className="border-2 w-full border-blue-700 hover:border-none text-blue-700 hover:text-white hover:bg-black cursor-pointer p-1.5 flex justify-center items-center gap-3 mt-3.5 rounded-sm">
-          <i class="fa-solid fa-cart-shopping "></i>
-          <span>Add to cart</span>
-        </button>
+
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 const Home = () => {
   return (
@@ -227,23 +219,23 @@ const Home = () => {
 
         {/* BestSellerData */}
 
-        <h1 className="text-center text-5xl p-4 font-semibold text-gray-800">
-          BEST SELLER
-        </h1>
-        <div className="flex flex-wrap gap-4 justify-around">
-          {bestSellerData.map((item) => (
-            <Card
-              key={item.id}
-              img={item.img}
-              title={item.title}
-              description={item.description}
-              pricecut={item.pricecut}
-              price={item.price}
-            />
-          ))}
+          <h1 className="text-center text-5xl p-4 font-semibold text-gray-800">
+            BEST SELLER
+          </h1>
+          <div className="flex flex-wrap gap-4 justify-around">
+            {bestSellerData.map((item) => (
+              <Card
+                key={item.id}
+                img={item.img}
+                title={item.title}
+                description={item.description}
+                pricecut={item.pricecut}
+                price={item.price}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </>
-  );
-};
-export default Home;
+      </>
+    );
+  };
+  export default Home;
