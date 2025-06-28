@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const images = [
-  // "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/BAU/iQOO/Z10Lite/Sale/high1._CB791188499_.jpg",
-  // "https://images-eu.ssl-images-amazon.com/images/G/31/img21/Raghu/May2025/HERO_BAU/TV_Knockout_deals_revised_GW_PC_3000X1200_._CB793232313_.jpg",
-  // "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/rohimak/vivoy400LL/D261177000_vivo_Y400_Pro_Sale_tallhero_3000x1200DT._CB791256083_.jpg",
-  // "https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/june/bvd/hero/4_MSME_Day_3000_1200_2506._CB791574145_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/BAU/iQOO/Z10Lite/Sale/high1._CB791188499_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img21/Raghu/May2025/HERO_BAU/TV_Knockout_deals_revised_GW_PC_3000X1200_._CB793232313_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/rohimak/vivoy400LL/D261177000_vivo_Y400_Pro_Sale_tallhero_3000x1200DT._CB791256083_.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/AmazonBusiness/img25/june/bvd/hero/4_MSME_Day_3000_1200_2506._CB791574145_.jpg",
 ];
 
 const HeroSlider = () => {
@@ -22,7 +22,7 @@ const HeroSlider = () => {
 
   // Auto slide every 8 seconds
   useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
+    const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -50,7 +50,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
+    <div className="w-full h-screen overflow-hidden relative">
       <div
         ref={sliderRef}
         className="flex h-full"
@@ -79,7 +79,7 @@ const HeroSlider = () => {
       {/* Navigation Buttons */}
       <button
         onClick={goPrev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 z-10"
+        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 z-10 "
       >
         ❮
       </button>
