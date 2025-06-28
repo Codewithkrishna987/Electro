@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+// Add actual hero images here
 const images = [
   "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/BAU/iQOO/Z10Lite/Sale/high1._CB791188499_.jpg",
   "https://images-eu.ssl-images-amazon.com/images/G/31/img21/Raghu/May2025/HERO_BAU/TV_Knockout_deals_revised_GW_PC_3000X1200_._CB793232313_.jpg",
@@ -12,7 +13,7 @@ const HeroSlider = () => {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const sliderRef = useRef(null);
 
-  // Clone first image to end for infinite effect
+  // Add a clone of the first image at the end to create infinite loop effect
   const extendedImages = [...images, images[0]];
 
   const nextSlide = () => {
@@ -20,25 +21,6 @@ const HeroSlider = () => {
     setIsTransitioning(true);
   };
 
-  // Auto slide every 8 seconds
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Reset to first slide (without animation) after reaching cloned slide
-  useEffect(() => {
-    if (current === images.length) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(false); // remove transition
-        setCurrent(0); // reset to real first image
-      }, 700); // wait for transition to complete
-
-      return () => clearTimeout(timer);
-    }
-  }, [current]);
-
-  // Manually go previous
   const goPrev = () => {
     if (current === 0) {
       setIsTransitioning(false);
@@ -48,6 +30,23 @@ const HeroSlider = () => {
       setCurrent((prev) => prev - 1);
     }
   };
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // After reaching the cloned image, jump to the real first image
+  useEffect(() => {
+    if (current === images.length) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrent(0);
+      }, 700); // match with CSS transition duration
+      return () => clearTimeout(timer);
+    }
+  }, [current]);
 
   return (
     <div className="w-full h-screen overflow-hidden relative">
@@ -69,20 +68,15 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      {/* Overlay Text
-      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-        <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
-          Welcome to Our Website
-        </h1>
-      </div> */}
-
-      {/* Navigation Buttons */}
+      {/* Previous Button */}
       <button
         onClick={goPrev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 z-10 "
+        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 z-10"
       >
         ❮
       </button>
+
+      {/* Next Button */}
       <button
         onClick={nextSlide}
         className="absolute right-5 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 z-10"

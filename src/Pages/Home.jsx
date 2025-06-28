@@ -2,7 +2,7 @@ import React from "react";
 import HeroSlider from "../Components/HeroSlider";
 import Category from "../Components/Category";
 import { useCart } from "./CartContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Sample product data
 const newArrivalData = [
@@ -51,7 +51,6 @@ const newArrivalData = [
     img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
     hoverimg: "https://serviceapi.spicezgold.com/download/1742462909158_gdgd2.jpg",
   },
-  // Add more products...
 ];
 
 const popularData = [
@@ -95,7 +94,6 @@ const popularData = [
     price: "4899.00",
     img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
   },
-  // Add more products...
 ];
 
 const bestSellerData = [
@@ -139,10 +137,9 @@ const bestSellerData = [
     price: "101.00",
     img: "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg",
   },
-  // Add more products...
 ];
 
-// Reusable card component
+// Reusable Card component
 const Card = ({ product, handleAddToCart }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
@@ -181,6 +178,7 @@ const Card = ({ product, handleAddToCart }) => {
   );
 };
 
+// Home component
 const Home = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();

@@ -1,32 +1,35 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import {Routes , Route} from 'react-router-dom'
-import Home from './Pages/Home'
-import Products from './Pages/Products'
-import Contact from './Pages/Contact'
-import { Deals } from './Pages/Deals'
-import Categories from './Pages/Categories'
-import Cart from './Pages/Cart'
-import Navbar from './Components/Navbar'
-import Footer from './Components/Footer'
-import { Register } from './Pages/Register'
-import {Login} from './Pages/Login'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+
+// Pages
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
+import Contact from "./Pages/Contact";
+import { Deals } from "./Pages/Deals";
+import Categories from "./Pages/Categories";
+import Cart from "./Pages/Cart";
+import ProductPreview from "./Pages/ProductPreview";
+import { Register } from "./Pages/Register";
+import { Login } from "./Pages/Login";
+
+// Components
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0); // Currently unused, remove if unnecessary
 
   return (
-    <div className="bg-white h-full relative">
+    <div className="bg-white min-h-screen relative">
       <Navbar />
-      {/* <SearchBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Deals" element={<Deals />} />
-        <Route path="/Categories" element={<Categories />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/deals" element={<Deals />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/product/:id" element={<ProductPreview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -36,4 +39,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
