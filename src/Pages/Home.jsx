@@ -1,6 +1,7 @@
   import React from "react";
   import Category from "../Components/Category";
   import { CategoryData } from "../assets/assets.js";
+  import { Link } from "react-router";
     // newArrival data 
   const newArrivalData = [
     {
@@ -238,4 +239,6 @@ const Home = () => {
       </>
     );
   };
+
+  export { newArrivalData} ;
   export default Home;
