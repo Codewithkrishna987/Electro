@@ -3,6 +3,8 @@ import HeroSlider from "../Components/HeroSlider";
 import Category from "../Components/Category";
 import { useCart } from "./CartContext";
 import { useNavigate, Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { FaCheckCircle } from "react-icons/fa";
 
 // Sample product data
 const newArrivalData = [
@@ -163,7 +165,7 @@ const Card = ({ product, handleAddToCart }) => {
       </Link>
       <div className="p-5 flex flex-col gap-2">
         <div className="text-gray-500">{title}</div>
-        <div className="font-bold">{description}</div>
+        <div className="font-bold line-clamp-1">{description}</div>
         <div className="flex justify-between">
           <p className="line-through text-gray-500">₹{pricecut}</p>
           <p className="text-blue-700 font-semibold">₹{price}</p>
@@ -187,44 +189,48 @@ const Home = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    navigate("/cart");
+    toast.success("Added to cart!",{
+      autoClose:1000
+    });
+    // navigate("/cart");
   };
 
   return (
     <>
       <HeroSlider />
-      <div className="sm:p-4 px-3 py-2 bg-gradient-to-br from-blue-50 to-white">
+      <div className="sm:p-4 px-3 py-2 bg-gradient-to-br from-blue-50 to-white gap-3">
       <Category />
 
       {/* New Arrivals */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center mt-12">
         New{" "}
         <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Arrivals
         </span>
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4  "></div>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 mb-12"></div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
         {newArrivalData.map((item) => (
           <Card
             key={item.id}
             product={item}
             handleAddToCart={handleAddToCart}
+            
           />
         ))}
       </div>
 
       {/* Popular Products */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center mt-12">
         Most{" "}
         <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Popular
         </span>
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4"></div>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 mb-12"></div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
         {popularData.map((item) => (
           <Card
             key={item.id}
@@ -235,15 +241,15 @@ const Home = () => {
       </div>
 
       {/* Best Sellers */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center mt-12">
         Best{" "}
         <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Sellers
         </span>
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-5"></div>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-5 mb-12"></div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
         {bestSellerData.map((item) => (
           <Card
             key={item.id}

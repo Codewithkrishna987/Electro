@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Pages
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
@@ -11,6 +12,7 @@ import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
+import Buy from "./Pages/Buy"
 
 // Components
 import Navbar from "./Components/Navbar";
@@ -23,6 +25,7 @@ function App() {
   return (
     <div className="bg-white min-h-screen relative">
       <Navbar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
@@ -33,6 +36,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/buy" element={<Buy />}/>
       </Routes>
       <Footer />
     </div>
