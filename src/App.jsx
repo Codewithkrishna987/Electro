@@ -7,7 +7,6 @@ import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import Contact from "./Pages/Contact";
 import { Deals } from "./Pages/Deals";
-import Categories from "./Pages/Categories";
 import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview";
 import { Register } from "./Pages/Register";
@@ -16,6 +15,7 @@ import { Login } from "./Pages/Login";
 // Components
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import CategoryPage from "./Pages/CategoryPage";
 
 function App() {
   const [count, setCount] = useState(0); // Currently unused, remove if unnecessary
@@ -28,7 +28,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/deals" element={<Deals />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:name" element={<CategoryPage />} />
         <Route path="/product/:id" element={<ProductPreview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />

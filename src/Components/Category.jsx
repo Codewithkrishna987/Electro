@@ -1,5 +1,6 @@
 import React from "react";
 import { CategoryData } from "../assets/assets";
+import { Link } from "react-router-dom"; // ✅ Import Link
 
 const Category = () => {
   return (
@@ -21,61 +22,60 @@ const Category = () => {
 
         {/* Categories Container */}
         <div className="relative">
-          {/* Desktop Grid - Hidden on mobile */}
+          {/* Desktop Grid */}
           <div className="hidden lg:flex gap-6 justify-center">
-            {CategoryData.map((item, index) => (
-              <div key={item.id} className="group cursor-pointer">
+            {CategoryData.map((item) => (
+              <Link
+                to={`/category/${item.name}`}
+                key={item.id}
+                className="group cursor-pointer"
+              >
                 <div className="flex flex-col items-center p-4 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300">
-                  {/* Image Container */}
                   <div className="relative mb-3">
                     <div className="w-32 h-32 xl:w-36 xl:h-36 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 p-1 group-hover:scale-105 transition-transform duration-300 shadow-md group-hover:shadow-xl">
                       <div className="w-full h-full rounded-full overflow-hidden bg-white">
                         <img
-                          src="https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg"
+                          src={item.image}
                           alt={item.name || "Category"}
                           className="w-full h-full object-cover"
                         />
                       </div>
                     </div>
                   </div>
-
-                  {/* Category Name */}
                   <h3 className="text-lg font-semibold text-gray-800 text-center group-hover:text-blue-600 transition-colors duration-200">
                     {item.name || "Category"}
                   </h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          {/* Mobile/Tablet Scroll - Hidden on desktop */}
+          {/* Mobile/Tablet Scroll */}
           <div className="lg:hidden">
             <div className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-none pb-4">
               {CategoryData.map((item) => (
-                <div
+                <Link
+                  to={`/category/${item.name}`}
                   key={item.id}
                   className="flex-shrink-0 cursor-pointer group"
                 >
                   <div className="flex flex-col items-center">
-                    {/* Image Container */}
                     <div className="relative mb-3">
                       <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 p-1 group-active:scale-95 transition-transform duration-200 shadow-md">
                         <div className="w-full h-full rounded-full overflow-hidden bg-white">
                           <img
-                            src="https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg"
+                            src={item.image}
                             alt={item.name || "Category"}
                             className="w-full h-full object-cover"
                           />
                         </div>
                       </div>
                     </div>
-
-                    {/* Category Name */}
                     <h3 className="text-sm sm:text-base font-semibold text-gray-800 text-center max-w-20 sm:max-w-24">
                       {item.name || "Category"}
                     </h3>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -90,13 +90,6 @@ const Category = () => {
             </div>
           </div>
         </div>
-
-        {/* View All Button */}
-        {/* <div className="text-center mt-8"> */}
-          {/* <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 hover:scale-105 shadow-md hover:shadow-lg"> */}
-            {/* View All Categories */}
-          {/* </button> */}
-        {/* </div> */}
       </div>
 
       {/* Custom Scrollbar Styles */}

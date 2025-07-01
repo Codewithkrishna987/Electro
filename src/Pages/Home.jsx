@@ -3,6 +3,7 @@ import HeroSlider from "../Components/HeroSlider";
 import Category from "../Components/Category";
 import { useCart } from "./CartContext";
 import { useNavigate, Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // Sample product data
 const newArrivalData = [
@@ -144,8 +145,11 @@ const Card = ({ product, handleAddToCart }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
-    <div className="w-68 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+    
+  <div className="w-68 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+     <Link to={`/product/${product.id}`} className="block">
       <div className="overflow-hidden h-60 relative group">
+       
         <img
           src={img}
           alt={title}
@@ -159,6 +163,8 @@ const Card = ({ product, handleAddToCart }) => {
           />
         )}
       </div>
+      </Link>
+
       <div className="p-5 flex flex-col gap-2">
         <div className="text-gray-500">{title}</div>
         <div className="font-bold">{description}</div>
@@ -221,5 +227,5 @@ const Home = () => {
     </>
   );
 };
-
+export {newArrivalData, popularData,bestSellerData};
 export default Home;
