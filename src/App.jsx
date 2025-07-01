@@ -8,7 +8,7 @@ import Products from "./Pages/Products";
 import Contact from "./Pages/Contact";
 import { Deals } from "./Pages/Deals";
 import Cart from "./Pages/Cart";
-import ProductPreview from "./Pages/ProductPreview";
+import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
 

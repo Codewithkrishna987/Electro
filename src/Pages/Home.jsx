@@ -144,7 +144,7 @@ const Card = ({ product, handleAddToCart }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
-    <div className="w-68 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+    <div className="w-full border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
       <Link to={`/product/${product.id}`} className="block">
         <div className="overflow-hidden h-60 relative group">
           <img
@@ -173,7 +173,7 @@ const Card = ({ product, handleAddToCart }) => {
           className="border-2 w-full border-blue-700 hover:border-none text-blue-700 hover:text-white hover:bg-black p-1.5 flex justify-center items-center gap-3 mt-3.5 rounded-sm"
         >
           <i className="fa-solid fa-cart-shopping"></i>
-          <span>Add to cart</span>
+          <span className="cursor-pointer">Add to cart</span>
         </button>
       </div>
     </div>
@@ -193,32 +193,65 @@ const Home = () => {
   return (
     <>
       <HeroSlider />
-      <div className="sm:p-5 px-3 py-2 bg-gradient-to-br from-blue-50 to-white">
-        <Category />
+      <div className="sm:p-4 px-3 py-2 bg-gradient-to-br from-blue-50 to-white">
+      <Category />
 
-        {/* New Arrivals */}
-        <h1 className="text-center text-5xl p-4 font-semibold text-gray-800">New Arrivals</h1>
-        <div className="flex flex-wrap gap-4 justify-around">
-          {newArrivalData.map((item) => (
-            <Card key={item.id} product={item} handleAddToCart={handleAddToCart} />
-          ))}
-        </div>
+      {/* New Arrivals */}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+        New{" "}
+        <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Arrivals
+        </span>
+      </h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4  "></div>
 
-        {/* Popular */}
-        <h1 className="text-center text-5xl p-4 font-semibold text-gray-800">Popular This Week</h1>
-        <div className="flex flex-wrap gap-4 justify-around">
-          {popularData.map((item) => (
-            <Card key={item.id} product={item} handleAddToCart={handleAddToCart} />
-          ))}
-        </div>
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+        {newArrivalData.map((item) => (
+          <Card
+            key={item.id}
+            product={item}
+            handleAddToCart={handleAddToCart}
+          />
+        ))}
+      </div>
 
-        {/* Best Sellers */}
-        <h1 className="text-center text-5xl p-4 font-semibold text-gray-800">BEST SELLER</h1>
-        <div className="flex flex-wrap gap-4 justify-around">
-          {bestSellerData.map((item) => (
-            <Card key={item.id} product={item} handleAddToCart={handleAddToCart} />
-          ))}
-        </div>
+      {/* Popular Products */}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+        Most{" "}
+        <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Popular
+        </span>
+      </h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4"></div>
+
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+        {popularData.map((item) => (
+          <Card
+            key={item.id}
+            product={item}
+            handleAddToCart={handleAddToCart}
+          />
+        ))}
+      </div>
+
+      {/* Best Sellers */}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center">
+        Best{" "}
+        <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Sellers
+        </span>
+      </h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-5"></div>
+
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
+        {bestSellerData.map((item) => (
+          <Card
+            key={item.id}
+            product={item}
+            handleAddToCart={handleAddToCart}
+          />
+        ))}
+      </div>
       </div>
     </>
   );
