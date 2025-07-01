@@ -3,7 +3,6 @@ import HeroSlider from "../Components/HeroSlider";
 import Category from "../Components/Category";
 import { useCart } from "./CartContext";
 import { useNavigate, Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
 
 // Sample product data
 const newArrivalData = [
@@ -145,26 +144,23 @@ const Card = ({ product, handleAddToCart }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
-    
-  <div className="w-68 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
-     <Link to={`/product/${product.id}`} className="block">
-      <div className="overflow-hidden h-60 relative group">
-       
-        <img
-          src={img}
-          alt={title}
-          className="w-full object-cover transition-all duration-1000 ease-in-out opacity-100 group-hover:opacity-0 z-10"
-        />
-        {hoverimg && (
+    <div className="w-68 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+      <Link to={`/product/${product.id}`} className="block">
+        <div className="overflow-hidden h-60 relative group">
           <img
-            src={hoverimg}
-            alt={`${title} Hover`}
-            className="w-full h-full object-cover absolute top-0 left-0 transition-all duration-1000 ease-in-out opacity-0 group-hover:opacity-100 z-20"
+            src={img}
+            alt={title}
+            className="w-full object-cover transition-all duration-1000 ease-in-out opacity-100 group-hover:opacity-0 z-10"
           />
-        )}
-      </div>
+          {hoverimg && (
+            <img
+              src={hoverimg}
+              alt={`${title} Hover`}
+              className="w-full h-full object-cover absolute top-0 left-0 transition-all duration-1000 ease-in-out opacity-0 group-hover:opacity-100 z-20"
+            />
+          )}
+        </div>
       </Link>
-
       <div className="p-5 flex flex-col gap-2">
         <div className="text-gray-500">{title}</div>
         <div className="font-bold">{description}</div>
@@ -227,5 +223,6 @@ const Home = () => {
     </>
   );
 };
-export {newArrivalData, popularData,bestSellerData};
+
+export { newArrivalData, popularData, bestSellerData };
 export default Home;
