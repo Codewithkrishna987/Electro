@@ -9,7 +9,7 @@ import Contact from "./Pages/Contact";
 import { Deals } from "./Pages/Deals";
 import Categories from "./Pages/Categories";
 import Cart from "./Pages/Cart";
-import ProductPreview from "./Pages/ProductPreview";
+import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
 
