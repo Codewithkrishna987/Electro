@@ -140,7 +140,7 @@ const bestSellerData = [
 ];
 
 // Reusable Card component
-const Card = ({ product, handleAddToCart }) => {
+ export const Card = ({ product, handleAddToCart }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
@@ -170,7 +170,7 @@ const Card = ({ product, handleAddToCart }) => {
         </div>
         <button
           onClick={() => handleAddToCart(product)}
-          className="border-2 w-full border-blue-700 hover:border-none text-blue-700 hover:text-white hover:bg-black p-1.5 flex justify-center items-center gap-3 mt-3.5 rounded-sm"
+          className="border-2 w-full border-blue-700 hover:border-black text-blue-700 hover:text-white hover:bg-black p-[6px] flex justify-center items-center gap-3 mt-3.5 rounded-sm cursor-pointer transition-all duration-300"
         >
           <i className="fa-solid fa-cart-shopping"></i>
           <span className="cursor-pointer">Add to cart</span>

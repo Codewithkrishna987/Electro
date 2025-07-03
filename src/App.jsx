@@ -16,6 +16,7 @@ import { Login } from "./Pages/Login";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CategoryPage from "./Pages/CategoryPage";
+import ScrollTop from "./Components/ScrollTop.jsx";
 
 function App() {
   const [count, setCount] = useState(0); // Currently unused, remove if unnecessary
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="bg-white min-h-screen relative">
       <Navbar />
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
