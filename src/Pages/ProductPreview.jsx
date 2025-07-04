@@ -1,19 +1,32 @@
 import React, { use } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { Heart, Star, ShoppingCart, Shield, RotateCcw, Truck } from "lucide-react";
-import { newArrivalData , popularData , bestSellerData } from "./Home";
+import {
+  Heart,
+  Star,
+  ShoppingCart,
+  Shield,
+  RotateCcw,
+  Truck,
+} from "lucide-react";
+import { newArrivalData, popularData, bestSellerData } from "./Home";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
+import { Card } from "./Home.jsx";
 // Mock data - replace with your actual imports
-
 
 const ProductPreview = () => {
   // Mock useParams - replace with actual useParams() hook
   const navigate = useNavigate();
-  const { addToCart } = useCart(); ;
+  const { addToCart } = useCart();
   const { id } = useParams();
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    navigate("/cart");
+  };
+
   const fullData = [...newArrivalData, ...popularData, ...bestSellerData];
   const product = fullData.find((item) => item.id === parseInt(id));
+  const relatedProducts = fullData.slice(0, 4); // Adjust the number of related products as needed
 
   if (!product) {
     return <div>Product not found</div>;
@@ -101,11 +114,14 @@ const ProductPreview = () => {
 
             {/* Enhanced Action Buttons */}
             <div className="flex gap-4 sm:items-center sm:flex-row flex-col w">
-              <button className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-xl cursor-pointer text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold" onClick={() => {
-                addToCart(product)
-                navigate("/cart")
-                alert('Product added succesfully')
-                }}>
+              <button
+                className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-xl cursor-pointer text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
+                onClick={() => {
+                  addToCart(product);
+                  navigate("/cart");
+                  alert("Product added succesfully");
+                }}
+              >
                 <ShoppingCart className="w-5 h-5" />
                 Add to Cart
               </button>
@@ -139,6 +155,37 @@ const ProductPreview = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* To be added later*/}
+      {/* fullData.map((item) => {
+            if(item.category === product.category) {
+              return (
+                <Card
+                  key={item.id}
+                  product={item}
+                  handleAddToCart={handleAddToCart}
+                />
+              );
+        }) */}
+
+      {/* Temporary */}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 text-center mt-8">
+        Related{" "}
+        <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Products
+        </span>
+      </h2>
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around mt-8 px-4">
+        {relatedProducts.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              product={item}
+              handleAddToCart={handleAddToCart}
+            />
+          );
+        })}
       </div>
     </div>
   );

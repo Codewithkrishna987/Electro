@@ -12,19 +12,19 @@ import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
-import Buy from "./Pages/Buy"
+import Buy from "./Pages/Buy";
 
 // Components
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CategoryPage from "./Pages/CategoryPage";
+import ScrollTop from "./Components/ScrollTop.jsx";
 
 function App() {
-  const [count, setCount] = useState(0); // Currently unused, remove if unnecessary
-
   return (
     <div className="bg-white min-h-screen relative">
       <Navbar />
+      <ScrollTop />
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,7 +36,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/buy" element={<Buy />}/>
+        <Route path="/buy" element={<Buy />} />
       </Routes>
       <Footer />
     </div>

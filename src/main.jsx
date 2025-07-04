@@ -4,14 +4,14 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./Pages/CartContext.jsx";
+import ScrollTop from "./Components/ScrollTop.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-
-    <BrowserRouter>
+  <BrowserRouter>
       <CartProvider>
         <App />
       </CartProvider>
-    </BrowserRouter>
+  </BrowserRouter>
 );
