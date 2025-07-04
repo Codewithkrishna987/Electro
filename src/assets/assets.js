@@ -1,7 +1,9 @@
 import cart_icon from "./cart_icon.png";
+import bag from "./bag.png"
 
 export const assets = {
   cart_icon,
+  bag,
 };
 
 const defaultImg = "https://serviceapi.spicezgold.com/download/1742462909156_gdgd1.jpg";
