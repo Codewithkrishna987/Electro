@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Pages
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
@@ -11,7 +12,11 @@ import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
+<<<<<<< HEAD
 import Wishlist from "./Pages/Wishlist.jsx";
+=======
+import Buy from "./Pages/Buy";
+>>>>>>> 5ab1be807019d825f67b85a5c18834f181ab8c05
 
 // Components
 import Navbar from "./Components/Navbar";
@@ -20,12 +25,11 @@ import CategoryPage from "./Pages/CategoryPage";
 import ScrollTop from "./Components/ScrollTop.jsx";
 
 function App() {
-  const [count, setCount] = useState(0); // Currently unused, remove if unnecessary
-
   return (
     <div className="bg-white min-h-screen relative">
       <Navbar />
       <ScrollTop />
+      <ToastContainer />
       <Routes>
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/" element={<Home />} />
@@ -37,6 +41,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/buy" element={<Buy />} />
       </Routes>
       <Footer />
     </div>
