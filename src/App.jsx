@@ -11,6 +11,7 @@ import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
+import Wishlist from "./Pages/Wishlist.jsx";
 
 // Components
 import Navbar from "./Components/Navbar";
@@ -26,6 +27,7 @@ function App() {
       <Navbar />
       <ScrollTop />
       <Routes>
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />

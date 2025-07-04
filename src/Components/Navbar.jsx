@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import SearchBar from "./SearchBar.jsx";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSearch } from "react-icons/io";
+import Wishlist from "../Pages/Wishlist.jsx";
 
 const Navbar = () => {
   const [cross, setCross] = useState(false);
@@ -97,17 +98,17 @@ const Navbar = () => {
                     </span>
                   </motion.li>
                 </NavLink>
-
-                <motion.li
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
-                >
-                  <FaRegHeart className="text-xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
-                  <span className="text-lg font-medium text-gray-700 group-hover:text-red-500 transition-colors duration-200">
-                    Wishlist
-                  </span>
-                </motion.li>
-
+                <NavLink to="/wishlist">
+                  <motion.li
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
+                  >
+                    <FaRegHeart className="text-xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
+                    <span className="text-lg font-medium text-gray-700 group-hover:text-red-500 transition-colors duration-200">
+                      Wishlist
+                    </span>
+                  </motion.li>
+                </NavLink>
                 <motion.li
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-4 bg-white py-4 px-6 border-b border-gray-100 cursor-pointer hover:bg-blue-50 transition-all duration-200 group"
@@ -161,15 +162,15 @@ const Navbar = () => {
                 <CgProfile className="text-2xl text-gray-600 group-hover:text-purple-600 transition-colors duration-200" />
               </motion.div>
             </NavLink>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="sm:flex hover:bg-red-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
-            >
-              <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
-            </motion.div>
-
+            <NavLink to='/wishlist'>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="sm:flex hover:bg-red-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
+              >
+                <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
+              </motion.div>
+            </NavLink>
             <NavLink to="/cart">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -191,7 +192,7 @@ const Navbar = () => {
         animate={
           search ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }
         }
-        exit ={{ opacity: 0, height: 0 }} 
+        exit={{ opacity: 0, height: 0 }}
         transition={{ duration: 0.3 }}
         className={`border-b border-gray-200 ${
           search ? "block" : "hidden"
