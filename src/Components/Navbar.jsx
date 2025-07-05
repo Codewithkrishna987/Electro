@@ -200,6 +200,9 @@ const Navbar = () => {
       >
         <SearchBar />
       </motion.div>
+
+
+      
     </div>
   );
 };

@@ -12,11 +12,10 @@ import Cart from "./Pages/Cart";
 import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
-<<<<<<< HEAD
+
 import Wishlist from "./Pages/Wishlist.jsx";
-=======
+
 import Buy from "./Pages/Buy";
->>>>>>> 5ab1be807019d825f67b85a5c18834f181ab8c05
 
 // Components
 import Navbar from "./Components/Navbar";
