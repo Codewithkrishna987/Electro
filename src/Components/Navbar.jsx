@@ -162,6 +162,19 @@ const Navbar = () => {
                 <CgProfile className="text-2xl text-gray-600 group-hover:text-purple-600 transition-colors duration-200" />
               </motion.div>
             </NavLink>
+<<<<<<< HEAD
+
+            <NavLink to="wishlist">
+              <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="sm:flex hover:bg-red-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
+            >
+              <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
+            </motion.div>
+            </NavLink>
+
+=======
             <NavLink to='/wishlist'>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -171,6 +184,7 @@ const Navbar = () => {
                 <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
               </motion.div>
             </NavLink>
+>>>>>>> 5febeab27f124ce232aba18d43f9a5b9831ea294
             <NavLink to="/cart">
               <motion.div
                 whileHover={{ scale: 1.05 }}

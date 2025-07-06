@@ -142,11 +142,11 @@ const bestSellerData = [
 ];
 
 // Reusable Card component
- export const Card = ({ product, handleAddToCart }) => {
+ export const Card = ({ product, handleAddToCart, addToWishlist }) => {
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
-    <div className="w-full min-w-80 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+    <div className="w-full border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
       <Link to={`/product/${product.id}`} className="block">
         <div className="overflow-hidden h-60 relative group">
           <img
@@ -160,9 +160,11 @@ const bestSellerData = [
               alt={`${title} Hover`}
               className="w-full h-full object-cover absolute top-0 left-0 transition-all duration-1000 ease-in-out opacity-0 group-hover:opacity-100 z-20"
             />
+            
           )}
+          </Link>
         </div>
-      </Link>
+      
       <div className="p-5 flex flex-col gap-2">
         <div className="text-gray-500">{title}</div>
         <div className="font-bold line-clamp-1">{description}</div>
@@ -184,7 +186,7 @@ const bestSellerData = [
 
 // Home component
 const Home = () => {
-  const { addToCart } = useCart();
+  const { addToCart, addToWishlist } = useCart();
   const navigate = useNavigate();
 
   const handleAddToCart = (product) => {
@@ -216,7 +218,7 @@ const Home = () => {
             key={item.id}
             product={item}
             handleAddToCart={handleAddToCart}
-            
+            addToWishlist={addToWishlist}
           />
         ))}
       </div>
@@ -236,6 +238,7 @@ const Home = () => {
             key={item.id}
             product={item}
             handleAddToCart={handleAddToCart}
+             addToWishlist={addToWishlist}
           />
         ))}
       </div>
@@ -255,6 +258,7 @@ const Home = () => {
             key={item.id}
             product={item}
             handleAddToCart={handleAddToCart}
+            addToWishlist={addToWishlist}
           />
         ))}
       </div>
