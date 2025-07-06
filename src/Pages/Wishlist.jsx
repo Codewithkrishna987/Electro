@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-import { div } from "framer-motion/client";
 import { useCart } from "./CartContext";
 
 
@@ -50,16 +48,16 @@ export const Wishlist = () => {
 };
 
 export default Wishlist;
-=======
-import React from 'react'
 
-const Wishlist = () => {
-  return (
-    <div className="top-0 left-0 min-h-screen bg-[url('logo.png')] bg-fixed w-[50%]  bg-no-repeat ">
+// import React from 'react'
+
+// const Wishlist = () => {
+//   return (
+//     <div className="top-0 left-0 min-h-screen bg-[url('logo.png')] bg-fixed w-[50%]  bg-no-repeat ">
         
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Wishlist
->>>>>>> 5febeab27f124ce232aba18d43f9a5b9831ea294
+// export default Wishlist
+// >>>>>>> 5febeab27f124ce232aba18d43f9a5b9831ea294
