@@ -5,6 +5,8 @@ import { useCart } from "./CartContext";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { FaCheckCircle } from "react-icons/fa";
+import { scale } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Sample product data
 const newArrivalData = [
@@ -150,7 +152,7 @@ const bestSellerData = [
       
       
         <div className="overflow-hidden h-60 relative group block">
-          <button onClick={() => addToWishlist(product)} className="absolute hidden group-hover:block group-hover:z-50 p-2 text-2xl right-0 text-pink-600"><i class="fa-regular fa-heart"></i></button>
+          <motion.button whileHover={{scale: 1.05}} whileTap={{scale:0.95}} onClick={() => addToWishlist(product)} className="absolute hidden group-hover:block group-hover:z-50 p-2 text-2xl right-0 text-pink-600"><i class="fa-regular fa-heart"></i></motion.button>
           <Link to={`/product/${product.id}`}>
           <img
             src={img}

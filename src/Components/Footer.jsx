@@ -31,7 +31,7 @@ const Reusable = (props) => {
 const Footer = () => {
   return (
     <div className="bg-gray-500">
-      <div className="grid grid-cols-2 sm:flex justify-center sm:flex-wrap gap-6 md:gap-12 py-5 sm:py-12 border border-gray-200 bg-white mt-10 ">
+      <div className="grid grid-cols-2 sm:flex justify-center sm:flex-wrap gap-6 md:gap-12 py-5 sm:py-12 border border-gray-200 bg-white mt-5 ">
         {[
           { icon: FiTruck, t1: "Fast Delivery", t2: "Within 24 hours" },
           {
