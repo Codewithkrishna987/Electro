@@ -162,13 +162,15 @@ const Navbar = () => {
               </motion.div>
             </NavLink>
 
-            <motion.div
+            <NavLink to="wishlist">
+              <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="sm:flex hover:bg-red-100 hover:shadow-md rounded-full p-3 cursor-pointer hidden transition-all duration-200 group"
             >
               <FaRegHeart className="text-2xl text-gray-600 group-hover:text-red-500 transition-colors duration-200" />
             </motion.div>
+            </NavLink>
 
             <NavLink to="/cart">
               <motion.div

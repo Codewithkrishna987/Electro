@@ -12,16 +12,21 @@ import { newArrivalData, popularData, bestSellerData } from "./Home";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import { Card } from "./Home.jsx";
+import { toast } from "react-toastify"
+
 // Mock data - replace with your actual imports
 
 const ProductPreview = () => {
   // Mock useParams - replace with actual useParams() hook
   const navigate = useNavigate();
-  const { addToCart } = useCart();
+  const { addToCart, addToWishlist } = useCart();
   const { id } = useParams();
   const handleAddToCart = (product) => {
     addToCart(product);
-    navigate("/cart");
+    toast.success("Added to cart!",{
+        autoClose:1000
+      });
+    // navigate("/cart");
   };
 
   const fullData = [...newArrivalData, ...popularData, ...bestSellerData];
@@ -49,7 +54,7 @@ const ProductPreview = () => {
                 alt={product.title}
               />
               {/* Wishlist Button */}
-              <button className="absolute top-4 right-4 p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <button className="absolute top-4 right-4 p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group" onClick={() => addToWishlist(product)}>
                 <Heart className="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors duration-300" />
               </button>
               {/* Discount Badge */}
@@ -118,8 +123,10 @@ const ProductPreview = () => {
                 className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-xl cursor-pointer text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold"
                 onClick={() => {
                   addToCart(product);
-                  navigate("/cart");
-                  alert("Product added succesfully");
+                  toast.success("Added to Cart",{
+                    autoClose:1000
+                  });
+                  // navigate("/cart");
                 }}
               >
                 <ShoppingCart className="w-5 h-5" />

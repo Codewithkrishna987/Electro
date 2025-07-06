@@ -5,11 +5,19 @@ const Cart = () => {
   const { cart, deletefromCart, addToCart, decreasefromCart } = useCart();
 
   return (
-    <div className="p-6 flex-grow">
-      <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
+    <div className="p-6 flex-grow min-h-[60vh]">
+      
+      <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 text-center ">
+        Your{" "}
+        <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Cart
+        </span>
+      </h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4"></div>
+      <hr className="text-gray-500" />
 
       {cart.length === 0 ? (
-        <p>No items in Cart</p>
+        <p className=" pt-8 text-2xl text-gray-600">No item in Your Cart</p>
       ) : (
         cart.map((item) => (
           <div

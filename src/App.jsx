@@ -13,6 +13,7 @@ import ProductPreview from "./Pages/ProductPreview.jsx";
 import { Register } from "./Pages/Register";
 import { Login } from "./Pages/Login";
 import Buy from "./Pages/Buy";
+import Wishlist  from "./Pages/Wishlist.jsx"
 
 // Components
 import Navbar from "./Components/Navbar";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/buy" element={<Buy />} />
+        <Route path="wishlist" element={<Wishlist />} />
       </Routes>
       <Footer />
     </div>
