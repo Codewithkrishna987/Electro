@@ -213,7 +213,7 @@ const Home = () => {
           Arrivals
         </span>
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 mb-12"></div>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 m-12"></div>
 
       <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
         {newArrivalData.map((item) => (
@@ -233,7 +233,7 @@ const Home = () => {
           Popular
         </span>
       </h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 mb-12"></div>
+      <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-4 m12"></div>
 
       <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 justify-around">
         {popularData.map((item) => (
