@@ -253,7 +253,7 @@ const CategoryPage = () => {
               showMobileFilters ? "block" : "hidden"
             } lg:block`}
           >
-            <div className="bg-white rounded-xl shadow-md p-6 sticky top-6">
+            <div className="bg-white rounded-xl shadow-md p-6 sticky top-6 ">
               {/* Mobile Close Button */}
               <div className="lg:hidden flex justify-between items-center mb-4 pb-4 border-b">
                 <h3 className="font-bold text-gray-800">Filters</h3>
@@ -384,7 +384,7 @@ const CategoryPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-scroll">
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-gray-800 mb-4 capitalize">
                 {category.name}

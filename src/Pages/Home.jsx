@@ -146,7 +146,7 @@ const bestSellerData = [
   const { title, description, pricecut, price, img, hoverimg } = product;
 
   return (
-    <div className="w-full border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
+    <div className="w-full min-w-80 border-2 h-auto flex-col rounded-xl overflow-hidden border-zinc-100 shadow-2xl relative">
       <Link to={`/product/${product.id}`} className="block">
         <div className="overflow-hidden h-60 relative group">
           <img
